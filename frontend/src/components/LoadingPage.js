@@ -65,7 +65,7 @@ const LoadingPage = ({ onLoadingComplete }) => {
           The Written Sky
         </h1>
         <p className="site-subtitle" data-testid="site-subtitle">
-          Where words touch the heavens
+          Lines written across the horizon
         </p>
 
         <div className="loader-container">
