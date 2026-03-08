@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+.loading-page {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #0a1628 0%, #1a2744 50%, #0f1b33 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.starfield {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8),
+              0 0 12px rgba(147, 197, 253, 0.6);
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.loading-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+  animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.site-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(147, 197, 253, 0.5),
+               0 0 40px rgba(147, 197, 253, 0.3);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px rgba(147, 197, 253, 0.5),
+                 0 0 40px rgba(147, 197, 253, 0.3);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(147, 197, 253, 0.8),
+                 0 0 60px rgba(147, 197, 253, 0.5),
+                 0 0 80px rgba(147, 197, 253, 0.3);
+  }
+}
+
+.site-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 300;
+  color: #93c5fd;
+  margin: 0 0 3rem 0;
+  letter-spacing: 0.1em;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(147, 197, 253, 0.2);
+  border-top-color: #93c5fd;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.progress-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: #93c5fd;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+}
+
+/* Shooting star effect */
+.loading-page::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background: #ffffff;
+  box-shadow: 0 0 10px #ffffff;
+  animation: shooting-star 3s ease-in-out infinite;
+}
+
+@keyframes shooting-star {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(1000px) translateY(400px);
+    opacity: 0;
+  }
+}
+
+/* Additional shooting stars with different timings */
+.loading-page::after {
+  content: '';
+  position: absolute;
+  top: 40%;
+  right: 0;
+  width: 2px;
+  height: 2px;
+  background: #ffffff;
+  box-shadow: 0 0 10px #ffffff;
+  animation: shooting-star-reverse 4s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes shooting-star-reverse {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-1000px) translateY(400px);
+    opacity: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .site-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .site-subtitle {
+    font-size: clamp(0.875rem, 4vw, 1.125rem);
+  }
+
+  .spinner {
+    width: 50px;
+    height: 50px;
+  }
+
+  .progress-text {
+    font-size: 1rem;
+  }
+}
