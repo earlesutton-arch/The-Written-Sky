@@ -1,0 +1,638 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Common Page Styles */
+.page-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a1628 0%, #1a2744 50%, #0f1b33 100%);
+  padding: 6rem 2rem 4rem;
+  position: relative;
+}
+
+.page-container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 80%, white, transparent);
+  background-size: 200% 200%;
+  opacity: 0.4;
+  animation: twinkleBackground 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes twinkleBackground {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(147, 197, 253, 0.5);
+}
+
+.page-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  color: #93c5fd;
+  margin: 0;
+  letter-spacing: 0.1em;
+  font-style: italic;
+}
+
+/* Home Page Styles */
+.hero-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 30px rgba(147, 197, 253, 0.6);
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 300;
+  color: #93c5fd;
+  margin: 0 0 2rem 0;
+  letter-spacing: 0.1em;
+  font-style: italic;
+}
+
+.hero-description {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(147, 197, 253, 0.9);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.content-section {
+  position: relative;
+  z-index: 1;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: rgba(26, 39, 68, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(147, 197, 253, 0.5);
+  box-shadow: 0 10px 40px rgba(147, 197, 253, 0.2);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  filter: grayscale(0.3);
+}
+
+.feature-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.feature-card p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  color: #93c5fd;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Poems Page Styles */
+.poems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.poem-card {
+  background: rgba(26, 39, 68, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.poem-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(147, 197, 253, 0.5);
+  box-shadow: 0 8px 30px rgba(147, 197, 253, 0.2);
+}
+
+.poem-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.poem-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.875rem;
+  color: #93c5fd;
+  margin: 0 0 1rem 0;
+  opacity: 0.7;
+}
+
+.poem-excerpt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  color: #93c5fd;
+  font-style: italic;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+}
+
+.read-more-btn {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #ffffff;
+  background: rgba(147, 197, 253, 0.2);
+  border: 1px solid #93c5fd;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background: #93c5fd;
+  color: #0a1628;
+}
+
+/* Poem Modal */
+.poem-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 22, 40, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 2rem;
+  backdrop-filter: blur(5px);
+}
+
+.poem-modal-content {
+  background: rgba(26, 39, 68, 0.95);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 700px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: #93c5fd;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-modal-btn:hover {
+  color: #ffffff;
+}
+
+.modal-poem-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.modal-poem-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #93c5fd;
+  margin: 0 0 2rem 0;
+  opacity: 0.8;
+}
+
+.modal-poem-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.375rem;
+  color: #93c5fd;
+  line-height: 2;
+}
+
+.modal-poem-text p {
+  margin: 0.5rem 0;
+}
+
+/* Books Page Styles */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.book-card {
+  background: rgba(26, 39, 68, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(147, 197, 253, 0.3);
+}
+
+.book-cover {
+  height: 350px;
+  background: linear-gradient(135deg, #1a2744 0%, #0f1b33 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(147, 197, 253, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.book-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(147, 197, 253, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(147, 197, 253, 0.1) 0%, transparent 50%);
+}
+
+.book-cover-inner {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  text-align: center;
+}
+
+.book-cover-inner h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(147, 197, 253, 0.5);
+}
+
+.book-details {
+  padding: 2rem;
+}
+
+.book-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.book-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #93c5fd;
+  margin: 0 0 0.5rem 0;
+  opacity: 0.8;
+}
+
+.book-pages {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.875rem;
+  color: #93c5fd;
+  margin: 0 0 1rem 0;
+  opacity: 0.7;
+}
+
+.book-description {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  color: #93c5fd;
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
+}
+
+.book-btn {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #ffffff;
+  background: rgba(147, 197, 253, 0.2);
+  border: 1px solid #93c5fd;
+  border-radius: 6px;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.book-btn:hover {
+  background: #93c5fd;
+  color: #0a1628;
+}
+
+/* About Page Styles */
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about-image {
+  position: sticky;
+  top: 7rem;
+  height: fit-content;
+}
+
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background: rgba(26, 39, 68, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.about-text {
+  color: #93c5fd;
+}
+
+.about-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 2rem 0 1rem 0;
+}
+
+.about-section-title:first-child {
+  margin-top: 0;
+}
+
+.about-paragraph {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin: 0 0 1.5rem 0;
+}
+
+.about-list {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  line-height: 2;
+  padding-left: 1.5rem;
+}
+
+.about-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Contact Page Styles */
+.contact-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-info {
+  color: #93c5fd;
+}
+
+.contact-info-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+}
+
+.contact-info-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin: 0 0 3rem 0;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-detail-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  font-size: 2rem;
+  filter: grayscale(0.3);
+}
+
+.contact-detail-item h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.contact-detail-item p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.contact-form {
+  background: rgba(26, 39, 68, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  border-radius: 12px;
+  padding: 3rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  color: #93c5fd;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(10, 22, 40, 0.6);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  border-radius: 6px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  color: #ffffff;
+  background: rgba(147, 197, 253, 0.2);
+  border: 1px solid #93c5fd;
+  border-radius: 6px;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: #93c5fd;
+  color: #0a1628;
+}
+
+.success-message {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  color: #4ade80;
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 6px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-image {
+    position: relative;
+    top: 0;
+  }
+
+  .image-placeholder {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  .featured-grid,
+  .poems-grid,
+  .books-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .poem-modal-content {
+    padding: 2rem;
+  }
+
+  .modal-poem-title {
+    font-size: 2rem;
+  }
+
+  .contact-form {
+    padding: 2rem;
+  }
+}

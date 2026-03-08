@@ -1,37 +1,13 @@
 import { useState, useEffect } from 'react';
 import '@/App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import axios from 'axios';
 import LoadingPage from './components/LoadingPage';
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <div className="content-wrapper" data-testid="main-content">
-          <h1 className="main-title">The Written Sky</h1>
-          <p className="welcome-text">Welcome to our poetry sanctuary</p>
-        </div>
-      </header>
-    </div>
-  );
-};
+import Navigation from './components/Navigation';
+import Home from './pages/Home';
+import Poems from './pages/Poems';
+import Books from './pages/Books';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -46,10 +22,13 @@ function App() {
         <LoadingPage onLoadingComplete={handleLoadingComplete} />
       ) : (
         <BrowserRouter>
+          <Navigation />
           <Routes>
-            <Route path="/" element={<Home />}>
-              <Route index element={<Home />} />
-            </Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/poems" element={<Poems />} />
+            <Route path="/books" element={<Books />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </BrowserRouter>
       )}
