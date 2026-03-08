@@ -590,6 +590,38 @@
   border-radius: 6px;
 }
 
+/* Empty State Styles */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.empty-state-icon {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  filter: grayscale(0.3);
+  opacity: 0.8;
+}
+
+.empty-state-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.empty-state-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: #93c5fd;
+  line-height: 1.8;
+  margin: 0;
+}
+
 /* Responsive Styles */
 @media (max-width: 1024px) {
   .about-content {
